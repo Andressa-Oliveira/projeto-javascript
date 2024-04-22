@@ -1,45 +1,32 @@
 export abstract class Produto {
 
-	private nome: string;
 	private descricao: string;
 	private preco: number;
-	private id: number;
+	private tamanho: string;
 
 
-	constructor($nome: string, $descricao: string, $preco: number, $id: number) {
-		this.nome = $nome;
-		this.descricao = $descricao;
-		this.preco = $preco;
-		this.id = $id;
+	constructor(descricao: string, preco: number, tamanho:string) {
+		this.descricao = descricao;
+		this.preco = preco;
+		this.tamanho = tamanho;
 	}
 
-
-
-	public get $nome(): string {
-		return this.nome;
-	}
 
 
 	public get $descricao(): string {
 		return this.descricao;
 	}
 
-
 	public get $preco(): number {
 		return this.preco;
 	}
-
-
-	public get $id(): number {
-		return this.id;
+	
+   
+	public get $tamanho(): string {
+		return this.tamanho;
 	}
 
-
-	public set $nome(value: string) {
-		this.nome = value;
-	}
-
-
+   
 	public set $descricao(value: string) {
 		this.descricao = value;
 	}
@@ -49,19 +36,15 @@ export abstract class Produto {
 		this.preco = value;
 	}
 
-
-	public set $id(value: number) {
-		this.id = value;
+   
+	public set $tamanho(value: string) {
+		this.tamanho = value;
 	}
-
-	public visualizar(): void {
-	console.log("\n\n******");
-	console.log("Dados do Produto:");
-	console.log("******");
-	console.log("Nome do produto: " + this.nome);
-	console.log("Descrição: " + this.descricao);
-	console.log("Preço: R$" + this.preco.toFixed(2));
-	console.log("Id: " + this.id);}
-
 	
+	public visualizar(): void {
+		console.log("Preço: R$" + this.preco.toFixed(2));
+		console.log("Descrição: " + this.descricao);
+		console.log("Tamanho: " + this.tamanho);
+	
+}
 }

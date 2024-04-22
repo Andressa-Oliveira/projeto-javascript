@@ -1,36 +1,41 @@
 import { Produto } from "./Produto";
 
-export class Jaqueta extends Produto{
-
-    private tamanho: string;
-    private cor: string;
+export class Jaqueta extends Produto {
 
 
-	constructor($tamanho: string, $cor: string, $nome: string, $descricao: string, $preco: number, $id: number ) {
-        super($nome, $descricao, $preco, $id);
-		this.tamanho = $tamanho;
-		this.cor = $cor;
-        
+
+	private cor: string;
+	private numero: number;
+
+
+	constructor(numero: number, tamanho: string, cor: string, descricao: string, preco: number) {
+		super(descricao, preco, tamanho);
+		this.cor = cor;
+		this.numero = numero;
+
+
+	}
+
+	public get $numero(): number {
+		return this.numero;
+	}
+
+	public set $numero(value: number) {
+		this.numero = value;
 	}
 
 
-   
-	public get $tamanho(): string {
-		return this.tamanho;
-	}
-
-   
 	public get $cor(): string {
 		return this.cor;
 	}
 
-    
-	public set $tamanho(value: string) {
-		this.tamanho = value;
-	}
 
 	public set $cor(value: string) {
 		this.cor = value;
 	}
 
+	public visualizar(): void {
+		super.visualizar();
+		console.log("Cor: " + this.cor);
+	}
 }
